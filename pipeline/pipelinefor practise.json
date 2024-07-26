@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "PractiseDf",
+				"name": "PractiseDataflow",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
