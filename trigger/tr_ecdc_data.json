@@ -1,0 +1,17 @@
+{
+	"name": "tr_ecdc_data",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-06-30T18:58:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

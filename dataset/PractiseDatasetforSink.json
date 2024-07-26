@@ -1,0 +1,25 @@
+{
+	"name": "PractiseDatasetforSink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ablob_covidreportingda",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "practisefile",
+				"folderPath": "practise",
+				"fileSystem": "processed"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

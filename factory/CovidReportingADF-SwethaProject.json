@@ -1,0 +1,9 @@
+{
+	"name": "CovidReportingADF-SwethaProject",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f6c21eb9-6e3a-4fec-89cf-539161e3ef3e",
+		"tenantId": "330536d5-0326-496e-a44a-7f2e95c1624f"
+	}
+}
