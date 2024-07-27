@@ -1,0 +1,46 @@
+{
+	"name": "ds_folderfordatabricks",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_formula1dl",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_file_date": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().p_file_date",
+					"type": "Expression"
+				},
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"constructorId": {
+					"type": "integer"
+				},
+				"constructorRef": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"nationality": {
+					"type": "string"
+				},
+				"url": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
