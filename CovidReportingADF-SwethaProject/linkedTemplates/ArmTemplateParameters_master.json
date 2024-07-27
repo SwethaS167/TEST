@@ -26,6 +26,9 @@
 		"ls_http_opendata_ecdc_europa_eu_fixed_properties_typeProperties_url": {
 			"value": "@{linkedService().sourcebaseURL}"
 		},
+		"trigger_databricks_properties_pipeline_parameters_p_file_date": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
 		"containerUri": {
 			"value": ""
 		},

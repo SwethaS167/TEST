@@ -6,6 +6,10 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "CovidReportingADF-SwethaProject"
+		},
+		"trigger_databricks_properties_pipeline_parameters_p_file_date": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
 		}
 	},
 	"variables": {
@@ -19,7 +23,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Get Metadata1",
+						"name": "Get Metadata",
 						"type": "GetMetadata",
 						"dependsOn": [],
 						"policy": {
@@ -59,7 +63,7 @@
 						"type": "IfCondition",
 						"dependsOn": [
 							{
-								"activity": "Get Metadata1",
+								"activity": "Get Metadata",
 								"dependencyConditions": [
 									"Completed"
 								]
@@ -68,7 +72,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"expression": {
-								"value": "@activity('Get Metadata1').output.exists",
+								"value": "@activity('Get Metadata').output.exists",
 								"type": "Expression"
 							},
 							"ifTrueActivities": [
@@ -1037,6 +1041,40 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/dataflowhospitaladms')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_databricks')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "circuitfile ingestion",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"p_file_date": "[parameters('trigger_databricks_properties_pipeline_parameters_p_file_date')]"
+					}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Hour",
+					"interval": 168,
+					"startTime": "2021-03-14T10:00:00Z",
+					"endTime": "2021-04-25T10:00:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/circuitfile ingestion')]"
 			]
 		}
 	]
