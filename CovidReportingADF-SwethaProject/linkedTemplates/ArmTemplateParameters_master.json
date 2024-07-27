@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "CovidReportingADF-SwethaProject"
+		},
+		"ls_ablob_covidreportingda_accountKey": {
+			"value": ""
+		},
+		"ls_ablob_covidreportingsto_connectionString": {
+			"value": ""
+		},
+		"ls_formula1dl_accountKey": {
+			"value": ""
+		},
+		"ls_AzureDatabricks_properties_typeProperties_existingClusterId": {
+			"value": "0703-140919-8l5t3qve"
+		},
+		"ls_ablob_covidreportingda_properties_typeProperties_url": {
+			"value": "https://covidreportingda.dfs.core.windows.net/"
+		},
+		"ls_formula1dl_properties_typeProperties_url": {
+			"value": "https://formula1datalake01.dfs.core.windows.net/"
+		},
+		"ls_http_opendata_ecdc_europa_eu_fixed_properties_typeProperties_url": {
+			"value": "@{linkedService().sourcebaseURL}"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
